@@ -41,7 +41,7 @@
                 android:maxLines="2"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
-                android:id="@+id/author"
+                android:id="@+id/article_author"
                 tools:text="author"/>
         </LinearLayout>
         <LinearLayout
@@ -80,6 +80,7 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:textColor="@color/colorPrimary"
+            android:id="@+id/article_snippet"
             tools:text="acticle snippet"/>
     </LinearLayout>
 </RelativeLayout>
