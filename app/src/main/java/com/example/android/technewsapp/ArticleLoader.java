@@ -20,7 +20,7 @@ public class ArticleLoader extends AsyncTaskLoader<List<Article>> {
     }
 
     @Override
-    public List<Article> onLoadInBackground() {
+    public List<Article> loadInBackground() {
         if (mUrl == null) {
             return null;
         }
