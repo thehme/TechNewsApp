@@ -22,7 +22,7 @@ import java.util.List;
 public class QueryUtils {
     public static final String TAG = QueryUtils.class.getSimpleName();
 
-    public static List<Article> fetchArticleData(String requestedUrl) {
+    public static List<Article> fetchArticlesData(String requestedUrl) {
         // Create URL object using local method
         URL url = createUrl(requestedUrl);
 
@@ -77,7 +77,7 @@ public class QueryUtils {
                 Log.e(TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(TAG, "Problem retrieving the articles JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
