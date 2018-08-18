@@ -82,7 +82,7 @@
             android:textColor="@color/colorPrimary"
             android:id="@+id/article_snippet"
             android:autoLink="web"
-            android:linksClickable="true"
+            android:linksClickable="false"
             tools:text="acticle snippet"/>
     </LinearLayout>
 </RelativeLayout>
