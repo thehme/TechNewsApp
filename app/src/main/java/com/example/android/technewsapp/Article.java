@@ -1,5 +1,4 @@
 package com.example.android.technewsapp;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -8,10 +7,10 @@ public class Article {
     private String mSection;
     private String mAuthor;
     private String mSnippet;
-    private long mDate;
+    private String mDate;
     private String mUrl;
 
-    public Article(String title, String section, String author, String snippet, long date, String url) {
+    public Article(String title, String section, String author, String snippet, String date, String url) {
         mTitle = title;
         mSection = section;
         mAuthor = author;
@@ -33,14 +32,32 @@ public class Article {
     }
 
     public String getSnippet() {
-        return mSnippet;
+        int articleLength = mSnippet.length();
+        String snippetSubString = "";
+        if (articleLength > 0) {
+            if (articleLength > 100) {
+                snippetSubString = mSnippet.substring(3, 100) + "...";
+            } else if (articleLength > 50) {
+                snippetSubString = mSnippet.substring(3, 50) + "...";
+            } else if (articleLength > 20) {
+                snippetSubString = mSnippet.substring(3, 20) + "...";
+            }
+        }
+        return snippetSubString;
     }
 
     public String getDate() {
-        long timeInMilliseconds = mDate;
-        Date dateObject = new Date(timeInMilliseconds);
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
-        return dateFormatter.format(dateObject);
+        String destFormatDateString = "";
+        try {
+            SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+            Date sourceFormatDate = sourceFormat.parse(mDate);
+            SimpleDateFormat destFormat = new SimpleDateFormat("dd/MM/yy");
+            destFormatDateString = destFormat.format(sourceFormatDate);
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+
+        return destFormatDateString;
     }
 
     public String getUrl() {
