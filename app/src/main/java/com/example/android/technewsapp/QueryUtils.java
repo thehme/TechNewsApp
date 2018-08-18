@@ -127,20 +127,33 @@ public class QueryUtils {
         // try to parse jsonResponse
         try {
             JSONObject responseJsonObject = new JSONObject(jsonResponse);
-            JSONArray articlesArray = responseJsonObject.getJSONArray("results");
-
+            JSONObject responseObject = responseJsonObject.getJSONObject("response");
+            JSONArray articlesArray = responseObject.getJSONArray("results");
             for (int i = 0; i < articlesArray.length(); i++) {
                 JSONObject currentArticleJson = articlesArray.getJSONObject(i);
-                JSONObject currentArticleTags = currentArticleJson.getJSONObject("tags");
-                JSONObject currentArticleFields = currentArticleJson.getJSONObject("fields");
-                String title = currentArticleJson.getString("webTitle");
-                String section = currentArticleJson.getString("sectionName");
-                String author = currentArticleTags.getString("webTitle");
-                String snippet = currentArticleFields.getString("body");
-                long date = currentArticleJson.getLong("webPublicationDate");
-                String url = currentArticleJson.getString("webUrl");
-
-                Article article = new Article(title, section, author, snippet, date, url);
+                JSONArray currentArticleTags = currentArticleJson.getJSONArray("tags");
+                Log.i(TAG, "size of tags object: " + currentArticleTags.length());
+                Article article;
+                if (currentArticleTags.length() > 0) {
+                    JSONObject articleTagsObject = currentArticleTags.getJSONObject(0);
+                    JSONObject currentArticleFields = currentArticleJson.getJSONObject("fields");
+                    String title = currentArticleJson.getString("webTitle");
+                    String section = currentArticleJson.getString("sectionName");
+                    String author = articleTagsObject.getString("webTitle");
+                    String snippet = currentArticleFields.getString("body");
+                    String date = currentArticleJson.getString("webPublicationDate");
+                    String url = currentArticleJson.getString("webUrl");
+                    article = new Article(title, section, author, snippet, date, url);
+                } else {
+                    JSONObject currentArticleFields = currentArticleJson.getJSONObject("fields");
+                    String title = currentArticleJson.getString("webTitle");
+                    String section = currentArticleJson.getString("sectionName");
+                    String author = "N/A";
+                    String snippet = currentArticleFields.getString("body");
+                    String date = currentArticleJson.getString("webPublicationDate");
+                    String url = currentArticleJson.getString("webUrl");
+                    article = new Article(title, section, author, snippet, date, url);
+                }
                 articles.add(article);
             }
         } catch (JSONException e) {
