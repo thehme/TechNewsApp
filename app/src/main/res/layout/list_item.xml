@@ -81,6 +81,8 @@
             android:textSize="12sp"
             android:textColor="@color/colorPrimary"
             android:id="@+id/article_snippet"
+            android:autoLink="web"
+            android:linksClickable="true"
             tools:text="acticle snippet"/>
     </LinearLayout>
 </RelativeLayout>

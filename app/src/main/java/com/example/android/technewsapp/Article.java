@@ -1,4 +1,6 @@
 package com.example.android.technewsapp;
+import android.text.Html;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -35,13 +37,7 @@ public class Article {
         int articleLength = mSnippet.length();
         String snippetSubString = "";
         if (articleLength > 0) {
-            if (articleLength > 100) {
-                snippetSubString = mSnippet.substring(3, 100) + "...";
-            } else if (articleLength > 50) {
-                snippetSubString = mSnippet.substring(3, 50) + "...";
-            } else if (articleLength > 20) {
-                snippetSubString = mSnippet.substring(3, 20) + "...";
-            }
+            snippetSubString = mSnippet.substring(3, articleLength/6) + "...";
         }
         return snippetSubString;
     }

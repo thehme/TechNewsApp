@@ -88,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         /** hide progress bar **/
         View progressBar = (View) findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.GONE);
-        emptyTextView.setVisibility(View.VISIBLE);
-        emptyTextView.setText(R.string.no_data);
 
         /** clear adapter first **/
         articlesAdapter.clear();
@@ -97,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //            Log.i(TAG, "number of Articles: " + Articles.size());
             articlesAdapter.addAll(Articles);
         } else {
+            emptyTextView.setVisibility(View.VISIBLE);
+            emptyTextView.setText(R.string.no_data);
             articleListView.setEmptyView(emptyTextView);
         }
     }

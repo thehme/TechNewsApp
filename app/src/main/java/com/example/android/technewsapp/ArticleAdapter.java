@@ -1,8 +1,12 @@
 package com.example.android.technewsapp;
 
 import android.app.Activity;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.test.suitebuilder.annotation.Suppress;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +51,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         // find the textView in the list_item.xml layout with the ID article_snippet
         TextView articleSnippetTextView = (TextView) listItemView.findViewById(R.id.article_snippet);
         if (currentArticle.getSnippet() != null) {
-            articleSnippetTextView.setText(currentArticle.getSnippet());
+            // snipped is HTML so using Html.fromHtml to present it in more human readable format
+            articleSnippetTextView.setText(Html.fromHtml(currentArticle.getSnippet()));
         }
 
         return listItemView;
