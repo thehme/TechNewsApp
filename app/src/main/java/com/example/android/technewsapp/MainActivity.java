@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     /** URL for articles data from Guardian API **/
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?&show-tags=contributor&show-fields=body&api-key=835fd2f5-893c-4949-98b4-98769b665ef9";
+            "https://content.guardianapis.com/search?&show-tags=contributor&show-fields=body&api-key=USER-KEY-HERE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
