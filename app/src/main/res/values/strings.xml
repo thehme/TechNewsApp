@@ -2,4 +2,7 @@
     <string name="app_name">TechNewsApp</string>
     <string name="no_data">No articles found.</string>
     <string name="no_internet">No internet connection.</string>
+    <!--Settings menu page-->
+    <string name="filters_menu_item">Filters</string>
+    <string name="filters_title">Article Filters</string>
 </resources>
