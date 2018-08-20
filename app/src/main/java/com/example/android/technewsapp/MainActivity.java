@@ -10,6 +10,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -105,5 +107,27 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<List<Article>> loader) {
         /** reset adapter **/
         articlesAdapter.clear();
+    }
+
+    @Override
+    // This method initialize the contents of the Activity's filters menu.
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the Filters Menu we specified in XML
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    // This method specifies action when a Filters Menu option is selected
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // which item was selected based on what was passed in
+        int id = item.getItemId();
+        // there is only one option at the mome
+        if (id == R.id.action_settings) {
+            Intent settingsIntent = new Intent(this, FiltersActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
