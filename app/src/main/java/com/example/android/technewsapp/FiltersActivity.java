@@ -10,7 +10,7 @@ public class FiltersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filters_activity);
     }
-    public static class EarthquakePreferenceFragment extends PreferenceFragment {
+    public static class ArticlePreferenceFragment extends PreferenceFragment {
 
     }
 }
