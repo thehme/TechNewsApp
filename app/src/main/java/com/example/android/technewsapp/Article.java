@@ -47,7 +47,7 @@ public class Article {
         try {
             SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
             Date sourceFormatDate = sourceFormat.parse(mDate);
-            SimpleDateFormat destFormat = new SimpleDateFormat("dd/MM/yy");
+            SimpleDateFormat destFormat = new SimpleDateFormat("MM/dd/yy");
             destFormatDateString = destFormat.format(sourceFormatDate);
         } catch (java.text.ParseException e) {
             e.printStackTrace();
