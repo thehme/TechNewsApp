@@ -14,6 +14,8 @@
     <string name="filters_categories_key" translatable="false">article_category</string>
     <string name="filters_categories_default" translatable="false">all</string>
     <!--Categories filter labels -->
+    <string name="filters_category_all_label">All</string>
+    <string name="filters_category_all_value">all</string>
     <string name="filters_category_technology_label">Technology</string>
     <string name="filters_category_technology_value">technology</string>
     <string name="filters_category_business_label">Business</string>
