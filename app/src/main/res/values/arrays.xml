@@ -6,7 +6,7 @@
         <item>@string/filters_category_business_label</item>
         <item>@string/filters_category_politics_label</item>
         <item>@string/filters_category_us_news_label</item>
-        <item>@string/filters_category_art_label</item>
+        <item>@string/filters_category_music_label</item>
         <item>@string/filters_category_food_label</item>
         <item>@string/filters_category_sports_label</item>
         <item>@string/filters_category_environment_label</item>
@@ -18,7 +18,7 @@
         <item>@string/filters_category_business_value</item>
         <item>@string/filters_category_politics_value</item>
         <item>@string/filters_category_us_news_value</item>
-        <item>@string/filters_category_art_value</item>
+        <item>@string/filters_category_music_value</item>
         <item>@string/filters_category_food_value</item>
         <item>@string/filters_category_sports_value</item>
         <item>@string/filters_category_environment_value</item>
