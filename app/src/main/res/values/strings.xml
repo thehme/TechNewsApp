@@ -5,4 +5,29 @@
     <!--Settings menu page-->
     <string name="filters_menu_item">Filters</string>
     <string name="filters_title">Article Filters</string>
+    <!--Date filter labels -->
+    <string name="filters_date_label">Minimum Magnitude</string>
+    <string name="filters_date_key" translatable="false">min_magnitude</string>
+    <string name="filters_date_default" translatable="false">0</string>
+    <!--Categories filter labels -->
+    <string name="filters_categories_label">Category</string>
+    <string name="filters_categories_key" translatable="false">acticle_category</string>
+    <string name="filters_categories_default" translatable="false">All</string>
+    <!--Categories filter labels -->
+    <string name="filters_category_technology_label">Technology</string>
+    <string name="filters_category_technology_value">technology</string>
+    <string name="filters_category_business_label">Business</string>
+    <string name="filters_category_business_value">business</string>
+    <string name="filters_category_politics_label">Politics</string>
+    <string name="filters_category_politics_value">politics</string>
+    <string name="filters_category_us_news_label">US News</string>
+    <string name="filters_category_us_news_value">us-news</string>
+    <string name="filters_category_art_label">Art</string>
+    <string name="filters_category_art_value">art</string>
+    <string name="filters_category_food_label">Food</string>
+    <string name="filters_category_food_value">food</string>
+    <string name="filters_category_sports_label">Sports</string>
+    <string name="filters_category_sports_value">sport</string>
+    <string name="filters_category_environment_label">Environment</string>
+    <string name="filters_category_environment_value">environment</string>
 </resources>
