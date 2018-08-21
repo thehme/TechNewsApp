@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filter_categories_labels">
+        <item>@string/filters_category_technology_label</item>
+        <item>@string/filters_category_business_label</item>
+        <item>@string/filters_category_politics_label</item>
+        <item>@string/filters_category_us_news_label</item>
+        <item>@string/filters_category_art_label</item>
+        <item>@string/filters_category_food_label</item>
+        <item>@string/filters_category_sports_label</item>
+        <item>@string/filters_category_environment_label</item>
+    </string-array>
+
+    <string-array name="filter_categories_values">
+        <item>@string/filters_category_technology_value</item>
+        <item>@string/filters_category_business_value</item>
+        <item>@string/filters_category_politics_value</item>
+        <item>@string/filters_category_us_news_value</item>
+        <item>@string/filters_category_art_value</item>
+        <item>@string/filters_category_food_value</item>
+        <item>@string/filters_category_sports_value</item>
+        <item>@string/filters_category_environment_value</item>
+    </string-array>
+</resources>
