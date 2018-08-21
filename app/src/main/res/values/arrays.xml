@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="filter_categories_labels">
+        <item>@string/filters_category_all_label</item>
         <item>@string/filters_category_technology_label</item>
         <item>@string/filters_category_business_label</item>
         <item>@string/filters_category_politics_label</item>
@@ -12,6 +13,7 @@
     </string-array>
 
     <string-array name="filter_categories_values">
+        <item>@string/filters_category_all_value</item>
         <item>@string/filters_category_technology_value</item>
         <item>@string/filters_category_business_value</item>
         <item>@string/filters_category_politics_value</item>
