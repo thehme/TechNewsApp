@@ -24,8 +24,8 @@
     <string name="filters_category_politics_value">politics</string>
     <string name="filters_category_us_news_label">US News</string>
     <string name="filters_category_us_news_value">us-news</string>
-    <string name="filters_category_art_label">Art</string>
-    <string name="filters_category_art_value">art</string>
+    <string name="filters_category_music_label">Music</string>
+    <string name="filters_category_music_value">music</string>
     <string name="filters_category_food_label">Food</string>
     <string name="filters_category_food_value">food</string>
     <string name="filters_category_sports_label">Sports</string>
