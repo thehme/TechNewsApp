@@ -1,0 +1,11 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/filters_title">
+
+    <ListPreference
+        android:defaultValue="@string/filters_categories_default"
+        android:entries="@array/filter_categories_labels"
+        android:entryValues="@array/filter_categories_values"
+        android:key="@string/filters_categories_key"
+        android:title="@string/filters_categories_label" />
+</PreferenceScreen>
