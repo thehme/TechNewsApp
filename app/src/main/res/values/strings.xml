@@ -11,8 +11,8 @@
     <string name="filters_date_default" translatable="false">0</string>
     <!--Categories filter labels -->
     <string name="filters_categories_label">Category</string>
-    <string name="filters_categories_key" translatable="false">acticle_category</string>
-    <string name="filters_categories_default" translatable="false">All</string>
+    <string name="filters_categories_key" translatable="false">article_category</string>
+    <string name="filters_categories_default" translatable="false">all</string>
     <!--Categories filter labels -->
     <string name="filters_category_technology_label">Technology</string>
     <string name="filters_category_technology_value">technology</string>

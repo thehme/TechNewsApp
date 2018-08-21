@@ -4,9 +4,11 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,8 +35,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private ArticleAdapter articlesAdapter;
 
     /** URL for articles data from Guardian API **/
-    private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?&show-tags=contributor&show-fields=body&api-key=USER-KEY-HERE";
+    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +82,33 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<Article>> onCreateLoader(int i, Bundle bundle) {
-        Log.i(TAG, "creating loader");
-        return new ArticleLoader(MainActivity.this, GUARDIAN_REQUEST_URL);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // use getString to retrive a String value from the preferences
+        // the second parameter is the default value for this preference
+        String articleCategory = sharedPrefs.getString(
+                getString(R.string.filters_categories_key),
+                getString(R.string.filters_categories_default));
+
+        // use parse to break apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+
+        // use buildUpon to prepare the baseUri above to add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // append query parameters needed to get article data not filtered
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        uriBuilder.appendQueryParameter("show-fields", "body");
+        // TODO: replace user's API KEY
+        uriBuilder.appendQueryParameter("api-key", "USER_KEY_HERE");
+
+        // append query parameters and its value
+        if (!articleCategory.equals("all")) {
+            uriBuilder.appendQueryParameter("section", articleCategory);
+        }
+
+        // Log.i(TAG, "url is - " + uriBuilder.toString());
+        return new ArticleLoader(MainActivity.this, uriBuilder.toString());
     }
 
     @Override
@@ -94,7 +120,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         /** clear adapter first **/
         articlesAdapter.clear();
         if (Articles != null && !Articles.isEmpty()) {
-//            Log.i(TAG, "number of Articles: " + Articles.size());
             articlesAdapter.addAll(Articles);
         } else {
             emptyTextView.setVisibility(View.VISIBLE);
