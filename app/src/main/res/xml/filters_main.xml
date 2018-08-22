@@ -8,4 +8,12 @@
         android:entryValues="@array/filter_categories_values"
         android:key="@string/filters_categories_key"
         android:title="@string/filters_categories_label" />
+
+    <EditTextPreference
+        android:defaultValue="@string/filters_date_default"
+        android:inputType="date"
+        android:key="@string/filters_date_key"
+        android:selectAllOnFocus="false"
+        android:title="@string/filters_date_label" />
+
 </PreferenceScreen>
