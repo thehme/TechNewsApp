@@ -6,9 +6,9 @@
     <string name="filters_menu_item">Filters</string>
     <string name="filters_title">Article Filters</string>
     <!--Date filter labels -->
-    <string name="filters_date_label">Minimum Magnitude</string>
-    <string name="filters_date_key" translatable="false">min_magnitude</string>
-    <string name="filters_date_default" translatable="false">0</string>
+    <string name="filters_date_label">Publication Date</string>
+    <string name="filters_date_key" translatable="false">article_date</string>
+    <string name="filters_date_default" translatable="false">today</string>
     <!--Categories filter labels -->
     <string name="filters_categories_label">Category</string>
     <string name="filters_categories_key" translatable="false">article_category</string>
