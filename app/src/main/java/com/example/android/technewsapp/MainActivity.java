@@ -19,7 +19,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Article>> {
@@ -80,15 +84,43 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
     }
 
+    private String formatStringDate(String filterDate) {
+        try {
+            SimpleDateFormat fmt = new SimpleDateFormat("MM-dd-yyyy");
+            Date date = fmt.parse(filterDate);
+            Calendar calendarDate = Calendar.getInstance();
+            calendarDate.setTime(date);
+            String filterDateFormatted = calendarDate.get(Calendar.YEAR) + "-"
+                    + (calendarDate.get(Calendar.MONTH) + 1) + "-"
+                    + calendarDate.get(Calendar.DAY_OF_MONTH);
+            return filterDateFormatted;
+        }  catch (ParseException e) {
+            Log.i(TAG, "Error parsing date: ", e);
+            return "all";
+        }
+    }
+
     @Override
     public Loader<List<Article>> onCreateLoader(int i, Bundle bundle) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // use getString to retrive a String value from the preferences
+        // use getString to retrieve a String value from the preferences
         // the second parameter is the default value for this preference
         String articleCategory = sharedPrefs.getString(
                 getString(R.string.filters_categories_key),
                 getString(R.string.filters_categories_default));
+
+
+        Calendar calendarDate = Calendar.getInstance();
+        String currentDateFormatted = calendarDate.get(Calendar.YEAR) + "-"
+                + calendarDate.get(Calendar.MONTH) + "-"
+                + calendarDate.get(Calendar.DAY_OF_MONTH);
+
+        Log.i(TAG, "filters_date_key: " + getString(R.string.filters_date_key));
+        String articleDate = sharedPrefs.getString(
+                getString(R.string.filters_date_key),
+                currentDateFormatted);
+        String filterDateFormatted = formatStringDate(articleDate);
 
         // use parse to break apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
@@ -107,7 +139,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             uriBuilder.appendQueryParameter("section", articleCategory);
         }
 
-        // Log.i(TAG, "url is - " + uriBuilder.toString());
+        // append date filter if date entered
+        if (!articleDate.toLowerCase().equals("all")) {
+            uriBuilder.appendQueryParameter("from-date", filterDateFormatted);
+            uriBuilder.appendQueryParameter("to-date", filterDateFormatted);
+        }
+
+        Log.i(TAG, "url is - " + uriBuilder.toString());
         return new ArticleLoader(MainActivity.this, uriBuilder.toString());
     }
 

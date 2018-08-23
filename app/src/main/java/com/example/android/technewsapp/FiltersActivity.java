@@ -22,6 +22,9 @@ public class FiltersActivity extends AppCompatActivity {
 
             Preference articleCategory = findPreference(getString(R.string.filters_categories_key));
             bindPreferenceSummaryToValue(articleCategory);
+
+            Preference articleDate = findPreference(getString(R.string.filters_date_key));
+            bindPreferenceSummaryToValue(articleDate);
         }
 
         @Override
